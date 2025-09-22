@@ -1,0 +1,230 @@
+.casino-page {
+  min-height: 100vh;
+  background-color: var(--background-dark);
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.page-title {
+  font-size: 3rem !important;
+  font-weight: 800 !important;
+  margin-bottom: 16px !important;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-subtitle {
+  font-size: 1.5rem !important;
+  color: var(--text-secondary) !important;
+  font-weight: 400 !important;
+}
+
+.section-container {
+  margin-bottom: 80px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.section-title-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-icon {
+  color: var(--primary-color) !important;
+  font-size: 2rem !important;
+}
+
+.section-title {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+}
+
+.games-grid {
+  margin-bottom: 40px;
+}
+
+.game-card {
+  background-color: var(--background-paper) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease !important;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    border-color: var(--primary-color) !important;
+  }
+  
+  &.live {
+    border-color: var(--error-color) !important;
+  }
+  
+  &.table {
+    border-color: var(--info-color) !important;
+  }
+  
+  &.slot {
+    border-color: var(--warning-color) !important;
+  }
+}
+
+.game-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.game-image {
+  transition: transform 0.3s ease !important;
+}
+
+.game-card:hover .game-image {
+  transform: scale(1.05);
+}
+
+.live-indicator {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: var(--error-color);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.game-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.game-card:hover .game-overlay {
+  opacity: 1;
+}
+
+.play-button {
+  background-color: var(--primary-color) !important;
+  color: var(--background-dark) !important;
+  font-weight: 600 !important;
+  padding: 12px 24px !important;
+  border-radius: 8px !important;
+  text-transform: none !important;
+  
+  &:hover {
+    background-color: var(--primary-light) !important;
+    transform: scale(1.05);
+  }
+}
+
+.game-content {
+  padding: 20px !important;
+}
+
+.game-title {
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+  margin-bottom: 16px !important;
+}
+
+.game-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.detail {
+  text-align: center;
+  
+  .MuiTypography-body2 {
+    margin-bottom: 4px;
+    color: var(--text-secondary);
+  }
+  
+  .MuiTypography-body1 {
+    font-weight: 600;
+  }
+}
+
+.bet-limits {
+  text-align: center;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  
+  .MuiTypography-body2:first-child {
+    margin-bottom: 4px;
+    color: var(--text-secondary);
+  }
+}
+
+.volatility {
+  text-align: center;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  
+  .MuiTypography-body2 {
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 960px) {
+  .page-header {
+    margin-bottom: 40px;
+  }
+  
+  .page-title {
+    font-size: 2.5rem !important;
+  }
+  
+  .page-subtitle {
+    font-size: 1.2rem !important;
+  }
+  
+  .section-container {
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-title {
+    font-size: 2rem !important;
+  }
+  
+  .page-subtitle {
+    font-size: 1.1rem !important;
+  }
+  
+  .section-title {
+    font-size: 2rem !important;
+  }
+}

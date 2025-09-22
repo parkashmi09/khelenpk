@@ -1,0 +1,167 @@
+.layout {
+  min-height: 100vh;
+  background: #000;
+  border-radius: 16px 0px 0px 0px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(138, 118, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 65, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+.layout-content {
+  display: flex;
+  min-height: calc(100vh - 64px); // Reduced from 80px to match header height
+  position: relative;
+}
+
+.main-content {
+  flex: 1;
+  padding: 0px; // Reduced from 24px
+  background: transparent;
+  overflow-y: auto; // Allow main content to scroll
+  height: calc(100vh - 64px); // Reduced from 80px to match header height
+  position: relative; // Ensure proper stacking
+  z-index: 2;
+  
+  // Hide scrollbar UI completely - ALL BROWSERS
+  &::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+  }
+  
+  &::-webkit-scrollbar-track {
+    display: none !important;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    display: none !important;
+  }
+  
+  &::-webkit-scrollbar-corner {
+    display: none !important;
+  }
+  
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;  /* Firefox */
+  
+  @media (max-width: 960px) {
+    padding: 12px; // Reduced from 16px
+    margin-left: 0; // No margin on mobile
+    overflow-y: auto; // Ensure mobile scrolling works
+    height: auto; // Allow mobile to expand naturally
+    min-height: calc(100vh - 64px); // Reduced from 80px to match header height
+    
+    // Force hide scrollbar on mobile - ALL BROWSERS
+    &::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+    
+    &::-webkit-scrollbar-track {
+      display: none !important;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      display: none !important;
+    }
+    
+    &::-webkit-scrollbar-corner {
+      display: none !important;
+    }
+    
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 960px) {
+  .layout-content {
+    flex-direction: column;
+    overflow: visible; // Allow mobile content to flow
+  }
+  
+  .main-content {
+    margin-left: 0;
+    overflow-y: auto; // Mobile scrolling
+    height: auto; // Natural height on mobile
+    min-height: calc(100vh - 64px); // Reduced from 80px to match header height
+  }
+}
+
+// Responsive sidebar behavior
+@media (max-width: 960px) {
+  .main-content {
+    margin-left: 0 !important; // No margin on mobile
+    overflow-y: auto; // Ensure mobile scrolling
+    height: auto; // Natural height
+    min-height: calc(100vh - 64px); // Reduced from 80px to match header height
+    
+    // Additional mobile scrollbar hiding
+    &::-webkit-scrollbar,
+    &::-webkit-scrollbar-track,
+    &::-webkit-scrollbar-thumb,
+    &::-webkit-scrollbar-corner {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+      background: transparent !important;
+    }
+    
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+  
+  .layout {
+    overflow: visible; // Allow mobile scrolling
+    position: relative; // Change to relative for mobile
+  }
+  
+  // Global mobile scrollbar hiding
+  * {
+    &::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+    
+    &::-webkit-scrollbar-track {
+      display: none !important;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      display: none !important;
+    }
+    
+    &::-webkit-scrollbar-corner {
+      display: none !important;
+    }
+    
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+}
+.container-padding {
+  padding: 60px 20px;
+  @media (max-width: 768px) {
+    padding: 40px 4px;
+  }
+}

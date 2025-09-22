@@ -1,0 +1,239 @@
+.games-page {
+  min-height: 100vh;
+  background-color: var(--background-dark);
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.page-title {
+  font-size: 3rem !important;
+  font-weight: 800 !important;
+  margin-bottom: 16px !important;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-subtitle {
+  font-size: 1.5rem !important;
+  color: var(--text-secondary) !important;
+  font-weight: 400 !important;
+}
+
+.search-filters {
+  margin-bottom: 40px;
+}
+
+.search-input {
+  .MuiOutlinedInput-root {
+    background-color: var(--background-paper);
+    border-radius: 12px;
+    
+    &:hover .MuiOutlinedInput-notchedOutline {
+      border-color: var(--primary-color);
+    }
+    
+    &.Mui-focused .MuiOutlinedInput-notchedOutline {
+      border-color: var(--primary-color);
+    }
+  }
+}
+
+.category-tabs {
+  margin-bottom: 40px;
+  
+  .MuiTabs-root {
+    .MuiTab-root {
+      color: var(--text-secondary);
+      font-weight: 500;
+      
+      &.Mui-selected {
+        color: var(--primary-color);
+      }
+    }
+    
+    .MuiTabs-indicator {
+      background-color: var(--primary-color);
+    }
+  }
+}
+
+.games-grid {
+  margin-bottom: 40px;
+}
+
+.game-card {
+  background-color: var(--background-paper) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease !important;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    border-color: var(--primary-color) !important;
+  }
+}
+
+.game-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.game-image {
+  transition: transform 0.3s ease !important;
+}
+
+.game-card:hover .game-image {
+  transform: scale(1.05);
+}
+
+.game-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.game-card:hover .game-overlay {
+  opacity: 1;
+}
+
+.play-button {
+  background-color: var(--primary-color) !important;
+  color: var(--background-dark) !important;
+  font-weight: 600 !important;
+  padding: 12px 24px !important;
+  border-radius: 8px !important;
+  text-transform: none !important;
+  
+  &:hover {
+    background-color: var(--primary-light) !important;
+    transform: scale(1.05);
+  }
+}
+
+.game-badges {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.badge {
+  font-size: 0.7rem !important;
+  height: 20px !important;
+  
+  &.hot {
+    background-color: var(--error-color) !important;
+  }
+  
+  &.new {
+    background-color: var(--success-color) !important;
+  }
+}
+
+.game-content {
+  padding: 20px !important;
+}
+
+.game-title {
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+  margin-bottom: 8px !important;
+}
+
+.game-category {
+  color: var(--text-secondary) !important;
+  margin-bottom: 16px !important;
+}
+
+.game-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.stat {
+  text-align: center;
+  
+  .MuiTypography-body2 {
+    margin-bottom: 4px;
+    color: var(--text-secondary);
+  }
+  
+  .MuiTypography-body1 {
+    font-weight: 600;
+  }
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.bet-limits {
+  text-align: center;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  
+  .MuiTypography-body2:first-child {
+    margin-bottom: 4px;
+    color: var(--text-secondary);
+  }
+}
+
+.no-results {
+  text-align: center;
+  padding: 80px 20px;
+  
+  .MuiTypography-h5 {
+    margin-bottom: 16px;
+    color: var(--text-secondary);
+  }
+  
+  .MuiTypography-body1 {
+    color: var(--text-secondary);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 960px) {
+  .page-header {
+    margin-bottom: 40px;
+  }
+  
+  .page-title {
+    font-size: 2.5rem !important;
+  }
+  
+  .page-subtitle {
+    font-size: 1.2rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-title {
+    font-size: 2rem !important;
+  }
+  
+  .page-subtitle {
+    font-size: 1.1rem !important;
+  }
+}

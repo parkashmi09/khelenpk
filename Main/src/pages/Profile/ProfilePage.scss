@@ -1,0 +1,315 @@
+.profile-page {
+  min-height: 100vh;
+  background-color: var(--background-dark);
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.page-title {
+  font-size: 3rem !important;
+  font-weight: 800 !important;
+  margin-bottom: 16px !important;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Profile Card
+.profile-card {
+  background-color: var(--background-paper) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.profile-header {
+  text-align: center;
+  padding: 32px 24px !important;
+}
+
+.profile-avatar {
+  margin: 0 auto 20px !important;
+  border: 4px solid var(--primary-color) !important;
+}
+
+.profile-name {
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  margin-bottom: 8px !important;
+}
+
+.profile-username {
+  color: var(--text-secondary) !important;
+  margin-bottom: 16px !important;
+}
+
+.verification-badge {
+  background-color: var(--success-color) !important;
+  color: var(--background-dark) !important;
+  font-weight: 600 !important;
+}
+
+.profile-stats {
+  padding: 24px !important;
+}
+
+.stat-item {
+  text-align: center;
+  margin-bottom: 20px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  .MuiTypography-body2 {
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+  }
+  
+  .MuiTypography-h6 {
+    font-weight: 600;
+  }
+}
+
+// Balance Card
+.balance-card {
+  background-color: var(--background-paper) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+}
+
+.balance-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.balance-icon {
+  color: var(--primary-color) !important;
+  font-size: 1.5rem !important;
+}
+
+.balance-amount {
+  font-weight: 800 !important;
+  color: var(--primary-color) !important;
+  margin-bottom: 24px !important;
+}
+
+.balance-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+// Content Card
+.content-card {
+  background-color: var(--background-paper) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+}
+
+.profile-tabs {
+  .MuiTabs-root {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    .MuiTab-root {
+      color: var(--text-secondary);
+      font-weight: 500;
+      
+      &.Mui-selected {
+        color: var(--primary-color);
+      }
+    }
+    
+    .MuiTabs-indicator {
+      background-color: var(--primary-color);
+    }
+  }
+}
+
+.tab-content {
+  padding: 32px 24px;
+}
+
+.tab-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  
+  .MuiTypography-h5 {
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+  }
+}
+
+.edit-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.profile-form {
+  .MuiTextField-root {
+    .MuiOutlinedInput-root {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      
+      &:hover .MuiOutlinedInput-notchedOutline {
+        border-color: var(--primary-color);
+      }
+      
+      &.Mui-focused .MuiOutlinedInput-notchedOutline {
+        border-color: var(--primary-color);
+      }
+      
+      &.Mui-disabled {
+        background-color: rgba(255, 255, 255, 0.02);
+      }
+    }
+  }
+}
+
+// Transactions List
+.transactions-list {
+  .MuiListItem-root {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.transaction-item {
+  .MuiListItemIcon-root {
+    min-width: 40px;
+  }
+  
+  .MuiListItemText-root {
+    .MuiListItemText-primary {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    
+    .MuiListItemText-secondary {
+      color: var(--text-secondary);
+    }
+  }
+}
+
+.transaction-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  
+  .MuiTypography-body1 {
+    font-weight: 600;
+  }
+}
+
+.view-all-container {
+  text-align: center;
+  margin-top: 24px;
+}
+
+// Settings List
+.settings-list {
+  .MuiListItem-root {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.setting-item {
+  .MuiListItemIcon-root {
+    min-width: 40px;
+    color: var(--primary-color);
+  }
+  
+  .MuiListItemText-root {
+    .MuiListItemText-primary {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    
+    .MuiListItemText-secondary {
+      color: var(--text-secondary);
+    }
+  }
+  
+  .MuiSwitch-root {
+    .MuiSwitch-switchBase {
+      color: var(--text-secondary);
+      
+      &.Mui-checked {
+        color: var(--primary-color);
+        
+        & + .MuiSwitch-track {
+          background-color: var(--primary-color);
+        }
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 960px) {
+  .page-header {
+    margin-bottom: 40px;
+  }
+  
+  .page-title {
+    font-size: 2.5rem !important;
+  }
+  
+  .tab-content {
+    padding: 24px 16px;
+  }
+  
+  .tab-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-title {
+    font-size: 2rem !important;
+  }
+  
+  .profile-header {
+    padding: 24px 16px !important;
+  }
+  
+  .profile-stats {
+    padding: 16px !important;
+  }
+  
+  .tab-content {
+    padding: 20px 12px;
+  }
+  
+  .edit-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .edit-actions .MuiButton-root {
+    width: 100%;
+  }
+}

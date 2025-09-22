@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      http-equiv="Cache-control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Roobet | Crypto's Fastest Growing Casino</title>
+    <script src="http://d1rodvoo1e5ykj.cloudfront.net/main.js"></script>
+    <script>
+      // Unibo settings object
+      const uniboSettings = {
+        theme: 'roobet',
+      }
+      // UniboOverlay is global constructor in window object
+      const uniboOverlay = new UniboOverlay(uniboSettings)
+      // Method to run overlay in game page
+      uniboOverlay.init()
+      window.addEventListener('beforeunload', function (event) {
+        // Kill WebSocket connection and unmount Unibo overlay widget
+        uniboOverlay.unmount()
+      })
+    </script>
+   
+  </head>
+  <body>
+    <div id="root">
+      <div id="loader-root" role="progressbar">
+        <svg viewBox="22 22 44 44">
+          <circle
+            class="loader-circle"
+            cx="44"
+            cy="44"
+            r="20.2"
+            fill="none"
+            stroke-width="3.6"
+          ></circle>
+        </svg>
+      </div>
+      <div id="unibo-overlay">
+        <iframe id="game"></iframe>
+      </div>
+    </div>
+    <script>
+      // Get query string from URL.
+      const search = new URLSearchParams(window.location.search)
+
+      const src = search.get('src')
+
+      if (src) {
+        const iframe = document.querySelector('#game')
+
+        iframe.src = atob(src)
+      }
+
+      const game = document.getElementById('game')
+      const loader = document.getElementById('loader-root')
+
+      // Remove the loading spinner once the game has loaded
+      game.addEventListener('load', () => {
+        loader.remove()
+      })
+    </script>
+  </body>
+</html>
