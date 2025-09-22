@@ -1,8 +1,10 @@
 .home-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 100%);
+
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   
   &::before {
     content: '';
@@ -432,19 +434,74 @@
   z-index: 2;
 }
 
+// New flex container using Box layout
+.game-cta-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.game-cta-card-container {
+  box-sizing: border-box;
+  flex: 0 0 calc(25% - 18px); // four cards per row
+
+  @media (max-width: 1200px) {
+    flex: 0 0 calc(50% - 12px); // two per row on tablets
+  }
+
+  @media (max-width: 600px) {
+    flex: 0 0 100%; // full width on mobile
+  }
+}
+
 .game-cta-card {
   position: relative;
-  height: 400px;
+  height: 80px; // base height per spec
   border-radius: 20px;
   overflow: hidden;
-  background: linear-gradient(135deg, #2a2a5a 0%, #1a1a3a 100%);
+  // background: linear-gradient(135deg, #2a2a5a 0%, #1a1a3a 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease !important;
+  cursor: pointer;
   
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
-    border-color: rgba(138, 118, 255, 0.3) !important;
+    // transform: translateY(-8px);
+    // box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+    // border-color: rgba(138, 118, 255, 0.3) !important;
+  }
+}
+
+// Responsive heights for CTA card
+@media (min-width: 768px) {
+  .game-cta-card {
+    height: 140px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .game-cta-card {
+    height: 140px; // keep proportion; adjust if needed
+  }
+}
+
+// Theme tweaks for first and second cards when wrapped in containers
+.game-cta-card-container:nth-child(1) .game-cta-card {
+  // .cta-background img { opacity: 0.4; }
+  .cta-icon { color: #8a76ff !important; }
+  .cta-button {
+    // background: linear-gradient(135deg, #8a76ff 0%, #6366f1 100%) !important;
+    color: #ffffff !important;
+    // &:hover { box-shadow: 0 8px 25px rgba(138, 118, 255, 0.4); }
+  }
+}
+
+.game-cta-card-container:nth-child(2) .game-cta-card {
+  .cta-background img { opacity: 0.5; }
+  .cta-icon { color: #00ff41 !important; }
+  .cta-button {
+    background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%) !important;
+    color: #000000 !important;
+    &:hover { box-shadow: 0 8px 25px rgba(0, 255, 65, 0.4); }
   }
 }
 
@@ -454,59 +511,90 @@
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 1;
   
   img {
+    max-width: 100%;
+    display: inline-block;
+    vertical-align: middle;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.3;
+    border-radius: 12px;
+    opacity: 0.4;
+    transition: all 0.3s ease;
   }
 }
 
 .cta-floating-image {
   position: absolute;
+  z-index: 2;
   transition: all 0.3s ease;
+  
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+  }
 }
 
 .game-cta-card:hover .cta-floating-image {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.1) rotate(2deg);
+  
+  img {
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5));
+  }
 }
 
 .cta-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px;
+  align-items: flex-start;
+  text-align: left;
+  padding: 24px 32px;
+  top: 0;
+  left: 0;
+
   color: #ffffff;
+
+  // backdrop-filter: blur(5px);
 }
 
 .cta-icon {
   font-size: 3rem !important;
   color: #8a76ff !important;
   margin-bottom: 24px !important;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
 .cta-title {
-  font-size: 2.5rem !important;
-  font-weight: 700 !important;
-  margin-bottom: 16px !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  margin-bottom: 8px !important;
   color: #ffffff !important;
+  text-align: left;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   
+  @media (max-width: 960px) {
+    font-size: 24px !important;
+  }
   @media (max-width: 600px) {
-    font-size: 2rem !important;
+    font-size: 20px !important;
   }
 }
 
 .cta-subtitle {
-  font-size: 1.2rem !important;
-  color: rgba(255, 255, 255, 0.8) !important;
-  margin-bottom: 32px !important;
+  font-size: 14px !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin: 0 !important;
   font-weight: 500 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  text-align: left;
 }
 
 .cta-button {
@@ -518,6 +606,7 @@
   background: linear-gradient(135deg, #8a76ff 0%, #00ff41 100%) !important;
   color: #000000 !important;
   transition: all 0.3s ease !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   
   &:hover {
     transform: translateY(-2px);
@@ -765,7 +854,7 @@
 // Stats Section
 .stats-section {
   background: linear-gradient(135deg, #2a2a5a 0%, #1a1a3a 100%);
-  padding: 80px 0;
+  // padding: 80px 0;
   margin-top: 60px;
   position: relative;
   z-index: 2;
@@ -835,7 +924,7 @@
   }
   
   .game-cta-card {
-    height: 300px;
+    height: 148px;
   }
   
   .cta-content {
@@ -860,7 +949,7 @@
   }
   
   .game-cta-card {
-    height: 250px;
+    height: 148px;
   }
   
   .cta-content {
@@ -878,4 +967,195 @@
   .stat-number {
     font-size: 2rem !important;
   }
+}
+
+// Trust & Highlights Section
+.trust-section {
+  margin-top: -16px; // tighter top gap
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+  width: 100%; // match outer container width
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @media (max-width: 768px) {
+    margin-top: -16px;
+    margin-bottom: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    margin-top: -12px;
+    margin-bottom: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+.trust-swiper {
+  padding-bottom: 50px;
+  width: 100%;
+  max-width: 100%; // inherit container width
+  margin-left: auto;
+  margin-right: auto;
+  
+  .swiper-slide {
+    height: auto;
+    width: 100% !important;
+    display: flex; // ensure card stretches properly
+    justify-content: center;
+    align-items: stretch;
+  }
+  
+  .swiper-pagination {
+    bottom: 0;
+    
+    .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.3);
+      opacity: 1;
+      transition: all 0.3s ease;
+      
+      &.swiper-pagination-bullet-active {
+        background: #8a76ff;
+        transform: scale(1.2);
+        box-shadow: 0 0 10px rgba(138, 118, 255, 0.5);
+      }
+    }
+  }
+}
+
+// Individual Trust Cards
+.trust-card {
+  background-color: rgb(25, 25, 57) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 20px !important;
+  overflow: hidden;
+  height: 100%;
+  // width: 100% !important;
+
+  transition: all 0.3s ease !important;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // background: linear-gradient(135deg, rgba(138, 118, 255, 0.05) 0%, rgba(0, 255, 65, 0.02) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  &:hover {
+    // transform: translateY(-8px);
+    // box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    // border-color: rgba(138, 118, 255, 0.4) !important;
+    
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+.trust-card-content {
+  padding: 24px 24px !important;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+  min-height: 220px;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  
+  @media (max-width: 768px) {
+    padding: 20px 16px !important;
+    min-height: 200px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 16px 12px !important;
+    min-height: 180px;
+  }
+}
+
+.trust-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.trust-custom-icon {
+  width: 56px;
+  height: 56px;
+  filter: drop-shadow(0 8px 16px rgba(138, 118, 255, 0.3));
+  transition: all 0.3s ease;
+  object-fit: contain;
+}
+
+.trust-card:hover .trust-custom-icon {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 12px 24px rgba(138, 118, 255, 0.5));
+}
+
+.trust-material-icon {
+  width: 64px !important;
+  height: 64px !important;
+  background: linear-gradient(135deg, rgba(138, 118, 255, 0.15) 0%, rgba(138, 118, 255, 0.25) 100%) !important;
+  color: #8a76ff !important;
+  box-shadow: 0 8px 24px rgba(138, 118, 255, 0.25);
+  transition: all 0.3s ease !important;
+  
+  .MuiSvgIcon-root {
+    font-size: 2rem !important;
+  }
+}
+
+.trust-card:hover .trust-material-icon {
+  transform: scale(1.1);
+  box-shadow: 0 12px 32px rgba(138, 118, 255, 0.4);
+}
+
+.trust-card-title {
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  margin-bottom: 8px !important;
+  background: linear-gradient(135deg, #ffffff 0%, #A37EF2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.35rem !important;
+  
+  @media (max-width: 768px) {
+    font-size: 1.15rem !important;
+  }
+}
+
+.trust-card-subtitle {
+  color: #A37EF2 !important;
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
+  font-size: 0.95rem !important;
+}
+
+.trust-card-text {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  text-align: center !important;
+  font-size: 0.95rem !important;
+}
+
+// Trust CTA Button inside card
+.trust-card-btn {
+  margin-top: 8px;
 }

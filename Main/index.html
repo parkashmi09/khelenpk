@@ -36,7 +36,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
+    <!-- Manifest removed for local dev to avoid errors -->
+    <!-- <link rel="manifest" href="/manifest.json"> -->
     
   </head>
   <body>
@@ -55,6 +56,8 @@
     <div id="paymentiq-cashier"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
+  <!-- External seals disabled to prevent DNS errors in local/dev -->
+  <!--
   <script
     defer
     type="text/javascript"
@@ -65,4 +68,5 @@
     type="text/javascript"
     src="https://b6fbd907-6224-495b-891d-cd23b3e29488.seals-xcm.certria.com/xcm-seal.js"
   ></script>
+  -->
 </html>

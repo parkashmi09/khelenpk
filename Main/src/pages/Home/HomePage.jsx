@@ -8,7 +8,6 @@ import {
   CardContent,
   CardMedia,
   Chip,
-  Container,
   Avatar,
   Popover,
   List,
@@ -17,6 +16,10 @@ import {
   ListItemText,
   Divider
 } from '@mui/material'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, Pagination } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/pagination'
 import {
   PlayArrow as PlayIcon,
   Star as StarIcon,
@@ -41,6 +44,13 @@ import { useNavigate } from 'react-router-dom'
 import RegisterCarouselBanner from '../../components/RegisterCarouselBanner'
 import { SlotPotatoBanner } from '../../components/Home'
 import './HomePage.scss'
+// Themed SVG icons for Trust cards
+import IconSupport from '../../assets/images/newDesignIcons/Chat.svg'
+import IconCash from '../../assets/images/newDesignIcons/Cash.svg'
+import IconSend from '../../assets/images/newDesignIcons/Send.svg'
+import IconBTC from '../../assets/images/newDesignIcons/BTC.svg'
+import CustomGameListSection from './Game'
+import DepositIcon from '../../assets/images/deposit.webp'
 
 const HomePage = () => {
   const navigate = useNavigate()
@@ -125,11 +135,9 @@ const HomePage = () => {
       id: 1,
       title: "Casino",
       subtitle: "Thousands of Games",
-      background: "/placeholder.svg",
+      background: "/GameCtaFolder/casino-bg.avif",
       images: [
-        { src: "/placeholder.svg", style: { width: '30%', top: '10%', left: '5%' } },
-        { src: "/placeholder.svg", style: { width: '25%', top: '20%', right: '10%' } },
-        { src: "/placeholder.svg", style: { width: '20%', bottom: '10%', left: '15%' } }
+        { src: "/GameCtaFolder/casino-image.png", style: { width: '35%', top: '15%', right: '10%' } }
       ],
       buttonText: "Play Now",
       buttonLink: "/casino",
@@ -139,14 +147,38 @@ const HomePage = () => {
       id: 2,
       title: "Sports Betting",
       subtitle: "Support Your Team",
-      background: "/placeholder.svg",
+      background: "/GameCtaFolder/sports-bg.avif",
       images: [
-        { src: "/placeholder.svg", style: { width: '35%', top: '15%', right: '5%' } }
+        { src: "https://mglionpk.com/wp-content/themes/mglionpk/assets/images/sports-CgbCtznl.webp", style: { width: '40%', top: '10%', right: '5%' } }
       ],
       buttonText: "Bet Now",
       buttonLink: "/sports",
       icon: <SportsIcon />
-    }
+    },  
+    
+    {
+      id: 4,
+      title: "Racing",
+      subtitle: "Compete with the best",
+      background: "/GameCtaFolder/casino-bg.avif",
+      images: [
+        { src: "https://mglionpk.com/wp-content/themes/mglionpk/assets/images/racing-B0zGAPWI.webp", style: { width: '35%', top: '15%', right: '8%' } }
+      ],
+      buttonText: "Play Now",
+      buttonLink: "/casino",
+      icon: <CasinoIcon />
+    },{
+      id: 3,
+      title: "Lottery",
+      subtitle: "Win Big Prizes",
+      background: "/GameCtaFolder/sports-bg.avif",
+      images: [
+        { src: "https://mglionpk.com/wp-content/themes/mglionpk/assets/images/lottery-DUgna72e.webp", style: { width: '40%', top: '10%', right: '5%' } }
+      ],
+      buttonText: "Bet Now",
+      buttonLink: "/sports",
+      icon: <SportsIcon />
+    },  
   ]
 
   // Popular Games Data
@@ -270,6 +302,116 @@ const HomePage = () => {
     }
   ]
 
+  // Trust & Highlights Slider Data
+  const trustSliderData = [
+    {
+      id: 1,
+      icon: {
+        src: IconBTC,
+        alt: "Trusted Platform"
+      },
+      title: "#1 Trusted Platform",
+      subtitle: "Most trusted betting platform in Pakistan",
+      description: "Join thousands of satisfied players who trust our secure and reliable gaming platform with proven track record of fair play and instant payouts.",
+      theme: "primary"
+    },
+    {
+      id: 2,
+      icon: {
+        src: IconSupport,
+        alt: "Support"
+      },
+      title: "24/7 Support",
+      subtitle: "Round-the-clock customer assistance",
+      description: "Our dedicated support team is available 24/7 to help you with any questions or issues. Get instant help through live chat, email, or phone support.",
+      theme: "secondary"
+    },
+    {
+      id: 3,
+      icon: {
+        src: DepositIcon,
+        alt: "Wallet"
+      },
+      title: "Easy Deposits",
+      subtitle: "Quick & secure transactions",
+      description: "Enjoy hassle-free deposits and withdrawals with multiple payment options including bank transfers, digital wallets, and cryptocurrency.",
+      theme: "success"
+    },
+    {
+      id: 4,
+      icon: {
+        src: IconSend,
+        alt: "Bonuses"
+      },
+      title: "Exciting Bonuses",
+      subtitle: "Amazing rewards & giveaways",
+      description: "Boost your gaming experience with generous welcome bonuses, daily rewards, cashback offers, and exclusive VIP benefits for loyal players.",
+      theme: "accent"
+    },
+    {
+      id: 5,
+      icon: {
+        src: "https://cdn-icons-png.flaticon.com/512/3135/3135809.png",
+        alt: "Security"
+      },
+      title: "Bank-Level Security",
+      subtitle: "Your data is always protected",
+      description: "Advanced encryption and security measures ensure your personal information and funds are completely safe and secure at all times.",
+      theme: "security"
+    },
+    {
+      id: 6,
+      icon: {
+        src: "https://cdn-icons-png.flaticon.com/512/3135/3135768.png",
+        alt: "Fast Payouts"
+      },
+      title: "Lightning Fast Payouts",
+      subtitle: "Get your winnings instantly",
+      description: "Experience the fastest withdrawal processing in the industry. Most payouts are processed within minutes, not hours or days.",
+      theme: "speed"
+    }
+  ]
+
+  // Swiper configuration
+  const trustSwiperConfig = {
+    slidesPerView: 1,
+    spaceBetween: 16,
+    centeredSlides: true,
+    loop: true,
+    autoHeight: true,
+    speed: 600,
+    observer: true,
+    observeParents: true,
+    resizeObserver: true,
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: false,
+    },
+    pagination: {
+      clickable: true,
+      dynamicBullets: true,
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 1,
+        spaceBetween: 16,
+        centeredSlides: true,
+      },
+      768: {
+        slidesPerView: 1,
+        spaceBetween: 16,
+        centeredSlides: true,
+      },
+      1024: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        centeredSlides: true,
+      },
+    },
+    modules: [Autoplay, Pagination]
+  }
+
   return (
     <Box className="home-page">
       {/* Header with Auth Buttons and Profile */}
@@ -282,6 +424,88 @@ const HomePage = () => {
       {!isLoggedIn && <RegisterCarouselBanner />}
       {/* Slot Potato Banner */}
       <SlotPotatoBanner />
+
+      {/* Game CTAs Section - Casino & Sports */}
+      <Box className="game-cta-section">
+        <Box className="game-cta-container">
+          {gameCTAs.map((cta) => (
+            <Box className="game-cta-card-container" key={cta.id}>
+              <Box className="game-cta-card" onClick={() => navigate(cta.buttonLink)}>
+                {/* Background Image */}
+                <Box className="cta-background">
+                  <img src={cta.background} alt={`${cta.title} background`} />
+                </Box>
+                
+                {/* Floating Images */}
+                {cta.images.map((image, index) => (
+                  <Box
+                    key={index}
+                    className="cta-floating-image"
+                    style={image.style}
+                  >
+                    <img 
+                      src={image.src} 
+                      alt={`${cta.title} element ${index + 1}`}
+                      style={{ width: '100%', height: 'auto' }}
+                    />
+                  </Box>
+                ))}
+                
+                {/* Content Overlay */}
+                <Box className="cta-content">
+                  <Typography variant="h3" className="cta-title">
+                    {cta.title}
+                  </Typography>
+                  <Typography variant="h6" className="cta-subtitle">
+                    {cta.subtitle}
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
+          ))}
+        </Box>
+      </Box>
+
+      {/* Trust & Highlights Section */}
+      <Box className="trust-section">
+        <Swiper 
+          className="trust-swiper" 
+          {...trustSwiperConfig}
+        >
+          {trustSliderData.map((slide) => (
+            <SwiperSlide key={slide.id}>
+              <Box className={`trust-card trust-card--${slide.theme}`}>
+                <Box className="trust-card-content">
+                  <Box className="trust-icon-wrapper">
+                    <img 
+                      src={slide.icon.src}
+                      alt={slide.icon.alt}
+                      className="trust-custom-icon" 
+                      loading="lazy"
+                    />
+                  </Box>
+                  <Typography variant="h4" className="trust-card-title">
+                    {slide.title}
+                  </Typography>
+                  <Typography variant="h6" className="trust-card-subtitle">
+                    {slide.subtitle}
+                  </Typography>
+                  <Typography variant="body1" className="trust-card-text">
+                    {slide.description}
+                  </Typography>
+                  <a href="#" className="roo-button roo-button--secondary roo-button--medium trust-card-btn">
+                    <span className="roo-button__label">Learn more</span>
+                  </a>
+                  <Box className="trust-card-indicator">
+                    <span className={`indicator-dot indicator-dot--${slide.theme}`}></span>
+                  </Box>
+                </Box>
+              </Box>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </Box>
+      <CustomGameListSection/>
 
       {/* Profile Popover */}
       <Popover

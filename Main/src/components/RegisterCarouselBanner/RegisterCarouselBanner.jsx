@@ -19,7 +19,7 @@ export const RegisterCarouselBanner = () => {
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'))
 
   const handleRegisterClick = () => {
-    console.log('Register button clicked')
+    window.location.href = 'https://khelen.com/'
   }
 
   const handleSocialLogin = (provider) => {
@@ -39,7 +39,7 @@ export const RegisterCarouselBanner = () => {
       <Box className="registration-panel-new">
         <Box className="panel-content-new">
           <Typography variant="h3" className="welcome-title-new">
-            Welcome To Roobet
+            Welcome To KHELEN
           </Typography>
           
           <Typography variant="h6" className="hop-in-subtitle">

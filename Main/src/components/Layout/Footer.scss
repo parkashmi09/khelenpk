@@ -1,0 +1,157 @@
+.site-footer {
+  width: 100%;
+  z-index: 2;
+  padding: 12px 32px;
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
+}
+
+.footer-inner {
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-divider {
+  height: 1px;
+  width: 100%;
+  background: rgb(25, 25, 57);
+  opacity: 1;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-logo {
+  width: 132px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 6px;
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 24px;
+  }
+}
+
+.footer-name {
+  font-weight: 800 !important;
+  letter-spacing: 1px;
+}
+
+.footer-heading {
+  font-weight: 700 !important;
+}
+
+.footer-legal {
+  color: rgba(255, 255, 255, 0.7) !important;
+  line-height: 1.6 !important;
+}
+
+.footer-description {
+  color: rgba(255, 255, 255, 0.8) !important;
+  line-height: 1.7 !important;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600 !important;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.footer-badges {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 0 0;
+}
+
+.badge-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ssl-badge {
+  width: 120px;
+  height: auto;
+}
+
+.badge-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.safe-title {
+  font-weight: 800 !important;
+}
+
+.safe-sub {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.compliance-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  opacity: 0.9;
+}
+
+.compliance-icons img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .footer-inner {
+    padding: 20px 0;
+  }
+  .footer-legal {
+    font-size: 0.85rem !important;
+  }
+  .footer-badges {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .footer-links {
+    justify-content: center;
+    gap: 12px;
+  }
+  .footer-description {
+    font-size: 0.92rem !important;
+  }
+  .badge-left {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .ssl-badge {
+    width: 110px;
+  }
+  .compliance-icons img {
+    width: 32px;
+    height: 32px;
+  }
+}
+ 

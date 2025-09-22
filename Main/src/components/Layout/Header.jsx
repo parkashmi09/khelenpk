@@ -70,12 +70,13 @@ const Header = ({ onSidebarToggle, onSidebarCollapse, sidebarOpen, sidebarCollap
 
 
   const handleLoginClick = () => {
-    navigate('/login')
-    console.log('Login clicked')
+    // navigate('/login')
+    // console.log('Login clicked')
+    window.location.href = 'https://khelen.com/'
   }
 
   const handleRegisterClick = () => {
-    navigate('/register')
+    window.location.href = 'https://khelen.com/'
   }
 
   const open = Boolean(anchorEl)
@@ -125,7 +126,7 @@ const Header = ({ onSidebarToggle, onSidebarCollapse, sidebarOpen, sidebarCollap
 
      
           <Box
-            onClick={() => navigate('/')}
+            onClick={() => { window.location.href = 'https://khelen.com/' }}
             sx={{
               display: { xs: 'flex', md: 'none' },
               alignItems: 'center',
@@ -151,7 +152,7 @@ const Header = ({ onSidebarToggle, onSidebarCollapse, sidebarOpen, sidebarCollap
 
         {/* Center Section - ROOBET Logo (Desktop Only) */}
         <Box
-          onClick={() => navigate('/')}
+          onClick={() => { window.location.href = 'https://khelen.com/' }}
           sx={{
             display: { xs: 'none', md: 'flex' },
             alignItems: 'center',

@@ -7,6 +7,17 @@ import App from './App.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
 import './styles/index.scss'
 
+// Fix emotion CSS issues
+if (typeof window !== 'undefined') {
+  // Clear any cached emotion styles that might be causing issues
+  const emotionSheets = document.querySelectorAll('style[data-emotion]');
+  emotionSheets.forEach(sheet => {
+    if (sheet.textContent.includes('undefined')) {
+      sheet.remove();
+    }
+  });
+}
+
 // Add class to body when React loads to hide HTML loader
 document.body.classList.add('react-loaded')
 
