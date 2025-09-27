@@ -1,7 +1,7 @@
 .register-carousel-banner-new {
   position: relative;
   width: 100%;
-  height: 300px; // Reduced from 500px
+  height: 380px; // Reduced from 500px
   display: flex;
   overflow: hidden;
   border-radius: 12px 0px 0px 12px !important; // Force remove border radius
@@ -83,10 +83,21 @@
 //   border-radius: 0px 20px 0px 20px !important;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
+  opacity: 0;
+  animation: fadeInHero 600ms ease forwards;
   
   @media (max-width: 768px) {
     border-radius: 12px 12px 0px 0px !important; // Mobile: top corners rounded
   }
+}
+
+.khelen-title {
+  color: #ECFE14;
+}
+
+@keyframes fadeInHero {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .registration-panel-new {
@@ -133,7 +144,7 @@
 
 .welcome-title-new {
   color: white;
-  font-size: 24px; // Reduced from 28px for more compact look
+  font-size: 32px; // Reduced from 28px for more compact look
   font-weight: 900;
   margin-bottom: 6px; // Reduced from 8px for tighter spacing
   letter-spacing: 0.5px;

@@ -1,0 +1,211 @@
+.celebrity_section {
+  margin: 24px 0;
+  overflow: hidden;
+}
+
+.celebrity_header {
+  margin-bottom: 20px;
+  position: relative;
+  padding: 0 16px;
+}
+
+.celebrity_kicker {
+  color: rgba(255,255,255,0.8) !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  margin-bottom: 4px !important;
+}
+
+.celebrity_heading {
+  color: #ECFE14 !important;
+  font-weight: 800 !important;
+  font-size: 28px !important;
+  line-height: 1.2 !important;
+}
+
+.celebrity_nav {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.celebrity_nav_btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+  user-select: none;
+  
+  &:hover {
+    background: rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,0.3);
+  }
+  
+  &:focus,
+  &:active {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.celebrity_section_inner {
+  width: 100%;
+  padding: 0;
+}
+
+.swiper-container {
+  width: 100%;
+  padding: 0 16px;
+  overflow: visible;
+  
+  .swiper-wrapper {
+    align-items: center;
+  }
+}
+
+.swiper-slide {
+  width: auto !important;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+.celebrity_avatar_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 132px;
+  height: 132px;
+  background: linear-gradient(135deg, #00ff88, #ecfe14);
+  border-radius: 50%;
+  padding: 3px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.celebrity_avatar_ring {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.celebrity_avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Desktop - 8 cards per view */
+@media (min-width: 1200px) {
+  .celebrity_avatar_wrap {
+    width: 132px;
+    height: 132px;
+  }
+  
+  .swiper-container {
+    padding: 0 20px;
+  }
+}
+
+/* Tablet - adjust for medium screens */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .celebrity_avatar_wrap {
+    width: 132px;
+    height: 132px;
+  }
+}
+
+/* Small tablet */
+@media (min-width: 600px) and (max-width: 899px) {
+  .celebrity_avatar_wrap {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Mobile - 2 cards per view */
+@media (max-width: 599px) {
+  .celebrity_header {
+    padding: 0 12px;
+    padding-right: 90px; /* Space for nav buttons */
+  }
+
+  .celebrity_kicker {
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+  }
+
+  .celebrity_heading {
+    font-size: 20px !important;
+    line-height: 1.2 !important;
+    word-break: break-word;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin-top: 2px;
+  }
+
+  .celebrity_nav {
+    right: 12px;
+  }
+
+  .celebrity_nav_btn {
+    width: 32px;
+    height: 32px;
+    
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  .celebrity_section_inner {
+    padding: 0;
+  }
+
+  .swiper-container {
+    padding: 0 12px;
+  }
+
+  .celebrity_avatar_wrap {
+    width: 132px;
+    height: 132px;
+    background: linear-gradient(135deg, #00ff88, #ecfe14);
+  }
+}
+
+/* Very small mobile */
+@media (max-width: 380px) {
+  .celebrity_avatar_wrap {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .celebrity_heading {
+    font-size: 18px !important;
+  }
+}

@@ -3,17 +3,36 @@ import React, { useState } from 'react'
 import { ChevronLeft, ChevronRight } from '@mui/icons-material'
 import FirstGame from '@assets/images/first.png'
 import SecondOriginalGame from '@assets/images/2nd.png'
-import SecondGame from '@assets/images/second.png'
 import ThirdGame from '@assets/images/3rd.png'
 import FourthGame from '@assets/images/4th.png'
 import FifthGame from '@assets/images/5th.png'
 import SixthGame from '@assets/images/6th.png'
 
-import PopularGame1 from '@assets/images/22.png'
-import PopularGame2 from '@assets/images/33.png'
-import PopularGame3 from '@assets/images/44.png'
-import PopularGame4 from '@assets/images/55.png'
-import PopularGame5 from '@assets/images/66.png'
+import SlotImg1 from '@assets/images/slot-games/1.png'
+import SlotImg2 from '@assets/images/slot-games/2.png'
+import SlotImg3 from '@assets/images/slot-games/3.png'
+import SlotImg4 from '@assets/images/slot-games/4.png'
+import SlotImg5 from '@assets/images/slot-games/5.png'
+import SlotImg6 from '@assets/images/slot-games/6.png'
+import SlotImg7 from '@assets/images/slot-games/7.png'
+import SlotImg8 from '@assets/images/slot-games/8.png'
+
+
+
+
+import LiveCasino1 from '@assets/images/LiveCasino/1.png'
+import LiveCasino2 from '@assets/images/LiveCasino/2.png'
+import LiveCasino3 from '@assets/images/LiveCasino/3.png'
+import LiveCasino4 from '@assets/images/LiveCasino/4.png'
+import LiveCasino5 from '@assets/images/LiveCasino/5.png'
+import LiveCasino6 from '@assets/images/LiveCasino/6.png'
+import LiveCasino7 from '@assets/images/LiveCasino/7.png'
+import LiveCasino8 from '@assets/images/LiveCasino/8.png'
+
+
+
+
+
 import { Typography } from '@mui/material'
 
 
@@ -205,7 +224,7 @@ const GameSection = ({ title, games }) => {
               cursor: 'pointer',
               borderRadius: '12px',
               overflow: 'hidden',
-              backgroundColor: 'rgb(44, 40, 82)',
+              // backgroundColor: 'rgb(44, 40, 82)',
               transition: 'transform 0.2s ease',
               touchAction: 'pan-y'
             }}
@@ -219,9 +238,9 @@ const GameSection = ({ title, games }) => {
             {/* Game Image */}
             <div style={{
               width: '100%',
-              height: '220px',
+              height: '260px',
               position: 'relative',
-              backgroundColor: 'rgb(25, 25, 57)', // Placeholder background
+              backgroundColor: 'transparent',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center'
@@ -232,11 +251,12 @@ const GameSection = ({ title, games }) => {
                   src={game.image}
                   alt={game.title}
                   style={{
-                    display: 'flex',
+                    display: 'block',
                     width: '100%',
                     height: '100%',
                     userSelect: 'none',
-                    objectFit: 'cover'
+                    objectFit: 'cover',
+                    imageRendering: 'auto'
                   }}
                 />
               ) : (
@@ -255,22 +275,7 @@ const GameSection = ({ title, games }) => {
                 </div>
               )}
 
-              {/* Skeleton Placeholder Overlay */}
-              <div style={{
-                position: 'absolute',
-                top: '0',
-                left: '0',
-                width: '100%',
-                height: '100%',
-                backgroundColor: '#191939',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                opacity: 0.3,
-                pointerEvents: 'none'
-              }}>
-
-              </div>
+              {/* Removed overlay to prevent image dimming/blurring */}
             </div>
 
 
@@ -283,106 +288,75 @@ const GameSection = ({ title, games }) => {
 
 const CustomGameListSection = () => {
   // Sample data for Roobet Originals
-  const roobetOriginals = [
+  const LiveCasinoGames = [
     {
       id: '1',
       title: 'MISSION UNCROSSABLE',
       provider: 'ROOBET',
-      image: FirstGame
+      image: LiveCasino1
     },
     {
       id: '2',
       title: 'CRASH',
       provider: 'ROOBET',
-      image: SecondOriginalGame
+      image: LiveCasino2
     },
     {
       id: '3',
       title: 'PLINKO',
       provider: 'ROOBET',
-      image: ThirdGame
+      image: LiveCasino3
     },
     {
       id: '4',
       title: 'DICE',
       provider: 'ROOBET',
-      image: FourthGame
+      image: LiveCasino4
     },
     {
       id: '5',
       title: 'MINES',
       provider: 'ROOBET',
-      image: FifthGame
+      image: LiveCasino5
     },
     {
       id: '6',
       title: 'EXTRA GAME 1',
       provider: 'ROOBET',
-      image: SixthGame
+      image: LiveCasino6
     },
     {
       id: '7',
       title: 'EXTRA GAME 2',
       provider: 'ROOBET',
-      image: 'https://roobet.com/cdn-cgi/image/dpr=2.0,width=195,height=260,quality=90,blur=0,fit=cover,format=auto/https://roobet-dev-public-images-prod.s3.amazonaws.com/housegames:towers-H9BawlL5-.png'
+      image: LiveCasino7
+    },
+    {
+      id: '8',
+      title: 'EXTRA GAME 3',
+      provider: 'ROOBET',
+      image: LiveCasino8
     }
   ]
 
   // Sample data for Popular Games
-  const popularGames = [
-    {
-      id: '8',
-      title: 'WILD GANGS',
-      provider: 'DEGEN STUDIOS',
-      image: SecondGame,
-      isExclusive: true
-    },
-    {
-      id: '9',
-      title: 'SWEET BONANZA 1000',
-      provider: 'PRAGMATIC PLAY',
-      image: PopularGame1
-    },
-    {
-      id: '10',
-      title: 'GATOR HUNTERS',
-      provider: 'NOLIMIT CITY',
-      image: PopularGame2,
-      isNew: true
-    },
-    {
-      id: '11',
-      title: 'GATES OF OLYMPUS SUPER SCATTER',
-      provider: 'PRAGMATIC PLAY',
-      image: PopularGame3
-    },
-    {
-      id: '12',
-      title: 'POMPEII MEGAREELS MEGAWAYS',
-      provider: 'PRAGMATIC PLAY',
-      image: PopularGame4
-    },
-    {
-      id: '13',
-      title: 'EXTRA POPULAR 1',
-      provider: 'PRAGMATIC PLAY',
-      image: PopularGame5
-    },
-    {
-      id: '14',
-      title: 'EXTRA POPULAR 2',
-      provider: 'PRAGMATIC PLAY',
-      image: 'https://roobet.com/cdn-cgi/image/dpr=2.0,width=195,height=260,quality=90,blur=0,fit=cover,format=auto/https://roobet-dev-public-images-prod.s3.amazonaws.com/hacksaw:1172-6P6fOddbJ.jpeg'
-    }
-    
+  const slotGames = [
+    { id: '8', title: 'SLOT 1', provider: 'SLOTS', image: SlotImg1 },
+    { id: '9', title: 'SLOT 2', provider: 'SLOTS', image: SlotImg2 },
+    { id: '10', title: 'SLOT 3', provider: 'SLOTS', image: SlotImg3 },
+    { id: '11', title: 'SLOT 4', provider: 'SLOTS', image: SlotImg4 },
+    { id: '12', title: 'SLOT 5', provider: 'SLOTS', image: SlotImg5 },
+    { id: '13', title: 'SLOT 6', provider: 'SLOTS', image: SlotImg6 },
+    { id: '14', title: 'SLOT 7', provider: 'SLOTS', image: SlotImg7 },
+    { id: '15', title: 'SLOT 8', provider: 'SLOTS', image: SlotImg8 },
   ]
 
   return (
     <div style={{
 
     }}>
-      <GameSection title="Roobet Originals" games={roobetOriginals} />
-      <GameSection title="Popular Games" games={popularGames} />
+      <GameSection title="Slot Games" games={slotGames} />
+      <GameSection title="Live Casino" games={LiveCasinoGames} />
     </div>
   )
 }

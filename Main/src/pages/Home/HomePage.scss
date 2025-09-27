@@ -976,8 +976,8 @@
   position: relative;
   z-index: 2;
   width: 100%; // match outer container width
-  padding-left: 16px;
-  padding-right: 16px;
+  // padding-left: 16px;
+  // padding-right: 16px;
 
   @media (max-width: 768px) {
     margin-top: -16px;
@@ -1064,14 +1064,14 @@
 }
 
 .trust-card-content {
-  padding: 24px 24px !important;
+  padding: 20px 24px !important;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
   height: 100%;
-  min-height: 220px;
+  min-height: 180px;
   justify-content: center;
   width: 100%;
   box-sizing: border-box;

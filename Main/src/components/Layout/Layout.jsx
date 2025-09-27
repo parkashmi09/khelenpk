@@ -8,6 +8,7 @@ import './Layout.scss'
 import RegisterPage from '../RegisterPage/RegisterPage'
 import Footer from './Footer'
 import RegionRestricted from '../RegionRestricted'
+import WhatsAppSupport from './WhatsAppSupport'
 
 const Layout = ({ children, chatOpen, setChatOpen, showLogin, setShowLogin, showRegister, setShowRegister }) => {
   const theme = useTheme()
@@ -64,9 +65,9 @@ const Layout = ({ children, chatOpen, setChatOpen, showLogin, setShowLogin, show
       {/* Loader/Splash Screen */}
       <Loader isLoading={isLoading} />
 
-      {regionChecked && !isRegionAllowed && !isLoading && (
+      {/* {regionChecked && !isRegionAllowed && !isLoading && (
         <RegionRestricted />
-      )}
+      )} */}
 
       <Header
         onSidebarToggle={handleSidebarToggle}
@@ -97,6 +98,7 @@ const Layout = ({ children, chatOpen, setChatOpen, showLogin, setShowLogin, show
             {children}
           </Box>
           <Footer />
+          <WhatsAppSupport />
         </Box>
       </Box>
     </Box>

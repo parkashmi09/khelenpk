@@ -1,0 +1,55 @@
+/* WhatsAppSupport styles */
+
+.whatsapp-cta {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(236, 254, 20, 0.2);
+  padding: 10px 16px;
+  border-radius: 50px;
+  border: 2px solid #ecfe14;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 8px 24px rgba(236, 254, 20, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(236, 254, 20, 0.35);
+  }
+
+  @media (max-width: 960px) {
+    right: 16px;
+    bottom: 16px;
+    padding: 8px 14px;
+  }
+}
+
+.whatsapp-icon {
+  color: #ecfe14;
+  font-size: 24px;
+}
+
+.whatsapp-text {
+  font-size: 12px;
+  color: #ecfe14;
+  font-weight: 500;
+
+  .click-here {
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
+/* Optional: utility container if needed by parent layout */
+.whatsapp-support-container {
+  position: relative;
+}
+
+

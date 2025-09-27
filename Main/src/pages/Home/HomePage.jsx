@@ -14,8 +14,10 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Divider
+  Divider,
+  useMediaQuery
 } from '@mui/material'
+import { useTheme } from '@mui/material/styles'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination } from 'swiper/modules'
 import 'swiper/css'
@@ -51,8 +53,12 @@ import IconSend from '../../assets/images/newDesignIcons/Send.svg'
 import IconBTC from '../../assets/images/newDesignIcons/BTC.svg'
 import CustomGameListSection from './Game'
 import DepositIcon from '../../assets/images/deposit.webp'
+import InfluencerPromotionCarousel from '../../components/InfluencerPromotionCarousel/InfluencerPromotionCarousel'
+import CricketBettingSection from '../../components/CricketBetting'
 
 const HomePage = () => {
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   const navigate = useNavigate()
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [anchorEl, setAnchorEl] = useState(null)
@@ -425,6 +431,9 @@ const HomePage = () => {
       {/* Slot Potato Banner */}
       <SlotPotatoBanner />
 
+      {/* Influencer Promotion Carousel */}
+      <InfluencerPromotionCarousel />
+
       {/* Game CTAs Section - Casino & Sports */}
       <Box className="game-cta-section">
         <Box className="game-cta-container">
@@ -468,44 +477,87 @@ const HomePage = () => {
 
       {/* Trust & Highlights Section */}
       <Box className="trust-section">
-        <Swiper 
-          className="trust-swiper" 
-          {...trustSwiperConfig}
-        >
-          {trustSliderData.map((slide) => (
-            <SwiperSlide key={slide.id}>
-              <Box className={`trust-card trust-card--${slide.theme}`}>
-                <Box className="trust-card-content">
-                  <Box className="trust-icon-wrapper">
-                    <img 
-                      src={slide.icon.src}
-                      alt={slide.icon.alt}
-                      className="trust-custom-icon" 
-                      loading="lazy"
-                    />
+        {isMobile ? (
+          <Swiper 
+            className="trust-swiper" 
+            {...trustSwiperConfig}
+          >
+            {trustSliderData.map((slide) => (
+              <SwiperSlide key={slide.id}>
+                <Box className={`trust-card trust-card--${slide.theme}`}>
+                  <Box className="trust-card-content">
+                    <Box className="trust-icon-wrapper">
+                      <img 
+                        src={slide.icon.src}
+                        alt={slide.icon.alt}
+                        className="trust-custom-icon" 
+                        loading="lazy"
+                      />
+                    </Box>
+                    <Typography variant="h4" className="trust-card-title">
+                      {slide.title}
+                    </Typography>
+                    <Typography variant="h6" className="trust-card-subtitle">
+                      {slide.subtitle}
+                    </Typography>
+                    <Typography variant="body1" className="trust-card-text">
+                      {slide.description}
+                    </Typography>
+                    <a href="#" className="roo-button roo-button--secondary roo-button--medium trust-card-btn">
+                      <span className="roo-button__label">Learn more</span>
+                    </a>
+                    <Box className="trust-card-indicator">
+                      <span className={`indicator-dot indicator-dot--${slide.theme}`}></span>
+                    </Box>
                   </Box>
-                  <Typography variant="h4" className="trust-card-title">
-                    {slide.title}
-                  </Typography>
-                  <Typography variant="h6" className="trust-card-subtitle">
-                    {slide.subtitle}
-                  </Typography>
-                  <Typography variant="body1" className="trust-card-text">
-                    {slide.description}
-                  </Typography>
-                  <a href="#" className="roo-button roo-button--secondary roo-button--medium trust-card-btn">
-                    <span className="roo-button__label">Learn more</span>
-                  </a>
-                  <Box className="trust-card-indicator">
-                    <span className={`indicator-dot indicator-dot--${slide.theme}`}></span>
+                </Box>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : (
+          <Box className="trust-flex" sx={{ display: 'flex', flexWrap: 'wrap', gap: 2,width: '100%', maxWidth: '100%' }}>
+            {trustSliderData.slice(0, 4).map((slide) => (
+              <Box
+                key={slide.id}
+                sx={{
+                  flex: '1 1 calc(25% - 12px)',
+                  '@media (max-width:1200px)': { flex: '1 1 calc(50% - 16px)' },
+                }}
+              >
+                <Box className={`trust-card trust-card--${slide.theme}`}>
+                  <Box className="trust-card-content">
+                    <Box className="trust-icon-wrapper">
+                      <img 
+                        src={slide.icon.src}
+                        alt={slide.icon.alt}
+                        className="trust-custom-icon" 
+                        loading="lazy"
+                      />
+                    </Box>
+                    <Typography variant="h4" className="trust-card-title">
+                      {slide.title}
+                    </Typography>
+                    <Typography variant="h6" className="trust-card-subtitle">
+                      {slide.subtitle}
+                    </Typography>
+                    <Typography variant="body1" className="trust-card-text">
+                      {slide.description}
+                    </Typography>
+                    <a href="#" className="roo-button roo-button--secondary roo-button--medium trust-card-btn">
+                      <span className="roo-button__label">Learn more</span>
+                    </a>
+                    <Box className="trust-card-indicator">
+                      <span className={`indicator-dot indicator-dot--${slide.theme}`}></span>
+                    </Box>
                   </Box>
                 </Box>
               </Box>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+            ))}
+          </Box>
+        )}
       </Box>
       <CustomGameListSection/>
+      <CricketBettingSection/>
 
       {/* Profile Popover */}
       <Popover

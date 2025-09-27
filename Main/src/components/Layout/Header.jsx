@@ -170,7 +170,7 @@ const Header = ({ onSidebarToggle, onSidebarCollapse, sidebarOpen, sidebarCollap
               width: '160px',
               height: 'auto',
               maxHeight: '40px',
-              marginLeft: '200px',
+              marginLeft: '40px',
             }}
           />
         </Box>
