@@ -32,7 +32,8 @@ const SlotPotatoBanner = () => {
   }, [])
 
   const handleLearnMore = () => {
-    navigate('/raffle')
+    // navigate('/raffle')
+    window.location.href = 'https://khelen.com/'
   }
 
   const handleRaffleWinners = () => {

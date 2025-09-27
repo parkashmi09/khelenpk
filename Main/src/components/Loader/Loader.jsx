@@ -9,10 +9,7 @@ const Loader = ({ isLoading = true, isFading = false }) => {
   return (
     <Box className={`loader-overlay ${isFading ? 'fade-out' : ''}`}>
       <Box className="loader-container">
-        {/* Outer Spinner Circle */}
-        <Box className="spinner-outer">
-          <Box className="spinner"></Box>
-        </Box>
+    
         
         {/* Logo in Center */}
         <Box className="logo-center">

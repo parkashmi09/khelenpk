@@ -313,18 +313,18 @@ const HomePage = () => {
     {
       id: 1,
       icon: {
-        src: IconBTC,
+        src: '/images/first.webp',
         alt: "Trusted Platform"
       },
       title: "#1 Trusted Platform",
-      subtitle: "Most trusted betting platform in Pakistan",
+      subtitle: "Trusted betting platform in Pakistan",
       description: "Join thousands of satisfied players who trust our secure and reliable gaming platform with proven track record of fair play and instant payouts.",
       theme: "primary"
     },
     {
       id: 2,
       icon: {
-        src: IconSupport,
+        src: '/images/second.webp',
         alt: "Support"
       },
       title: "24/7 Support",
@@ -335,7 +335,7 @@ const HomePage = () => {
     {
       id: 3,
       icon: {
-        src: DepositIcon,
+        src: '/images/third.webp',
         alt: "Wallet"
       },
       title: "Easy Deposits",
@@ -346,7 +346,7 @@ const HomePage = () => {
     {
       id: 4,
       icon: {
-        src: IconSend,
+        src: '/images/fourth.webp',
         alt: "Bonuses"
       },
       title: "Exciting Bonuses",
@@ -354,28 +354,28 @@ const HomePage = () => {
       description: "Boost your gaming experience with generous welcome bonuses, daily rewards, cashback offers, and exclusive VIP benefits for loyal players.",
       theme: "accent"
     },
-    {
-      id: 5,
-      icon: {
-        src: "https://cdn-icons-png.flaticon.com/512/3135/3135809.png",
-        alt: "Security"
-      },
-      title: "Bank-Level Security",
-      subtitle: "Your data is always protected",
-      description: "Advanced encryption and security measures ensure your personal information and funds are completely safe and secure at all times.",
-      theme: "security"
-    },
-    {
-      id: 6,
-      icon: {
-        src: "https://cdn-icons-png.flaticon.com/512/3135/3135768.png",
-        alt: "Fast Payouts"
-      },
-      title: "Lightning Fast Payouts",
-      subtitle: "Get your winnings instantly",
-      description: "Experience the fastest withdrawal processing in the industry. Most payouts are processed within minutes, not hours or days.",
-      theme: "speed"
-    }
+    // {
+    //   id: 5,
+    //   icon: {
+    //     src: "https://cdn-icons-png.flaticon.com/512/3135/3135809.png",
+    //     alt: "Security"
+    //   },
+    //   title: "Bank-Level Security",
+    //   subtitle: "Your data is always protected",
+    //   description: "Advanced encryption and security measures ensure your personal information and funds are completely safe and secure at all times.",
+    //   theme: "security"
+    // },
+    // {
+    //   id: 6,
+    //   icon: {
+    //     src: "https://cdn-icons-png.flaticon.com/512/3135/3135768.png",
+    //     alt: "Fast Payouts"
+    //   },
+    //   title: "Lightning Fast Payouts",
+    //   subtitle: "Get your winnings instantly",
+    //   description: "Experience the fastest withdrawal processing in the industry. Most payouts are processed within minutes, not hours or days.",
+    //   theme: "speed"
+    // }
   ]
 
   // Swiper configuration
