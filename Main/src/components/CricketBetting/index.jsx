@@ -330,7 +330,7 @@ const CricketBettingSection = () => {
             </Button>
           </Box>
 
-          {/* Right Content */}
+   
           <Box className={classes.rightContent}>
             <Box className={classes.KhelenCard}>
               <img 
