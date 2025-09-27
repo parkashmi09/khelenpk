@@ -7,14 +7,17 @@ import 'swiper/css/navigation'
 import './InfluencerPromotionCarousel.scss'
 
 const defaultItems = [
-  { id: 1, name: 'Alina', src: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop' },
-  { id: 2, name: 'Sara', src: 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=400&h=400&fit=crop' },
-  { id: 3, name: 'Noor', src: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=400&h=400&fit=crop' },
-  { id: 4, name: 'Aisha', src: 'https://images.unsplash.com/photo-1541532713592-79a0317b6b77?w=400&h=400&fit=crop' },
-  { id: 5, name: 'Hina', src: 'https://images.unsplash.com/photo-1547425260-1d9d0b3d3431?w=400&h=400&fit=crop' },
-  { id: 6, name: 'Eman', src: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&h=400&fit=crop' },
-  { id: 7, name: 'Zoya', src: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop' },
-  { id: 8, name: 'Anaya', src: 'https://images.unsplash.com/photo-1544005313-1107b1b1b3f7?w=400&h=400&fit=crop' }
+  { id: 1, name: 'Influencer 1', src: '/influencers/1.webp' },
+  { id: 2, name: 'Influencer 2', src: '/influencers/2.png' },
+  { id: 3, name: 'Influencer 3', src: '/influencers/3.png' },
+  { id: 4, name: 'Influencer 4', src: '/influencers/4.jpeg' },
+  { id: 5, name: 'Influencer 5', src: '/influencers/5.png' },
+  { id: 6, name: 'Influencer 7', src: '/influencers/7.png' },
+  { id: 7, name: 'Influencer 8', src: '/influencers/8.png' },
+  { id: 8, name: 'Influencer 9', src: '/influencers/9.png' },
+  { id: 9, name: 'Influencer 10', src: '/influencers/10.png' },
+  { id: 10, name: 'Influencer 11', src: '/influencers/11.png' },
+  { id: 11, name: 'Influencer 12', src: '/influencers/12.jpeg' }
 ]
 
 const InfluencerPromotionCarousel = ({ items = defaultItems, title = 'Celebs Who likes', subtitle = 'Our Casino games online for real money' }) => {
