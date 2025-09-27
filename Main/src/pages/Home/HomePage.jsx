@@ -503,7 +503,14 @@ const HomePage = () => {
                     <Typography variant="body1" className="trust-card-text">
                       {slide.description}
                     </Typography>
-                    <a href="#" className="roo-button roo-button--secondary roo-button--medium trust-card-btn">
+                    <a 
+                      href="#" 
+                      className="roo-button roo-button--secondary roo-button--medium trust-card-btn"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.location.href = 'https://khelen.com/';
+                      }}
+                    >
                       <span className="roo-button__label">Learn more</span>
                     </a>
                     <Box className="trust-card-indicator">
@@ -543,7 +550,14 @@ const HomePage = () => {
                     <Typography variant="body1" className="trust-card-text">
                       {slide.description}
                     </Typography>
-                    <a href="#" className="roo-button roo-button--secondary roo-button--medium trust-card-btn">
+                    <a 
+                      href="#" 
+                      className="roo-button roo-button--secondary roo-button--medium trust-card-btn"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.location.href = 'https://khelen.com/';
+                      }}
+                    >
                       <span className="roo-button__label">Learn more</span>
                     </a>
                     <Box className="trust-card-indicator">

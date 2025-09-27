@@ -228,6 +228,9 @@ const GameSection = ({ title, games }) => {
               transition: 'transform 0.2s ease',
               touchAction: 'pan-y'
             }}
+            onClick={() => {
+              window.location.href = 'https://khelen.com/'
+            }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'scale(1.02)'
             }}
