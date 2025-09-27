@@ -20,14 +20,14 @@ import SlotImg8 from '@assets/images/slot-games/8.png'
 
 
 
-import LiveCasino1 from '@assets/images/LiveCasino/1.png'
-import LiveCasino2 from '@assets/images/LiveCasino/2.png'
-import LiveCasino3 from '@assets/images/LiveCasino/3.png'
-import LiveCasino4 from '@assets/images/LiveCasino/4.png'
-import LiveCasino5 from '@assets/images/LiveCasino/5.png'
-import LiveCasino6 from '@assets/images/LiveCasino/6.png'
-import LiveCasino7 from '@assets/images/LiveCasino/7.png'
-import LiveCasino8 from '@assets/images/LiveCasino/8.png'
+import LiveCasino1 from '@assets/images/Livecasino/1.png'
+import LiveCasino2 from '@assets/images/Livecasino/2.png'
+import LiveCasino3 from '@assets/images/Livecasino/3.png'
+import LiveCasino4 from '@assets/images/Livecasino/4.png'
+import LiveCasino5 from '@assets/images/Livecasino/5.png'
+import LiveCasino6 from '@assets/images/Livecasino/6.png'
+import LiveCasino7 from '@assets/images/Livecasino/7.png'
+import LiveCasino8 from '@assets/images/Livecasino/8.png'
 
 
 
