@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Box, Typography } from '@mui/material'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Navigation } from 'swiper/modules'
@@ -21,6 +21,10 @@ const defaultItems = [
 ]
 
 const InfluencerPromotionCarousel = ({ items = defaultItems, title = 'Celebs Who likes', subtitle = 'Our Casino games online for real money' }) => {
+  const prevRef = useRef(null)
+  const nextRef = useRef(null)
+  const swiperRef = useRef(null)
+
   const swiperConfig = {
     slidesPerView: 2,
     spaceBetween: 12,
@@ -37,8 +41,16 @@ const InfluencerPromotionCarousel = ({ items = defaultItems, title = 'Celebs Who
       pauseOnMouseEnter: true 
     },
     navigation: { 
-      prevEl: '.celebrity_prev', 
-      nextEl: '.celebrity_next' 
+      prevEl: prevRef.current, 
+      nextEl: nextRef.current 
+    },
+    onBeforeInit: (swiper) => {
+      swiper.params.navigation.prevEl = prevRef.current
+      swiper.params.navigation.nextEl = nextRef.current
+    },
+    onInit: (swiper) => {
+      swiper.navigation.init()
+      swiper.navigation.update()
     },
     breakpoints: {
       // Mobile: 2 cards
@@ -75,12 +87,12 @@ const InfluencerPromotionCarousel = ({ items = defaultItems, title = 'Celebs Who
         <Typography variant="body1" className="celebrity_kicker">{title}</Typography>
         <Typography variant="h3" className="celebrity_heading">{subtitle}</Typography>
         <Box className="celebrity_nav">
-          <button className="celebrity_nav_btn celebrity_prev" aria-label="Previous">
+          <button ref={prevRef} className="celebrity_nav_btn celebrity_prev" aria-label="Previous">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M15 6l-6 6 6 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
-          <button className="celebrity_nav_btn celebrity_next" aria-label="Next">
+          <button ref={nextRef} className="celebrity_nav_btn celebrity_next" aria-label="Next">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9 6l6 6-6 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -89,7 +101,7 @@ const InfluencerPromotionCarousel = ({ items = defaultItems, title = 'Celebs Who
       </Box>
 
       <Box className="celebrity_section_inner">
-        <Swiper className="swiper-container" {...swiperConfig}>
+        <Swiper ref={swiperRef} className="swiper-container" {...swiperConfig}>
           {items.map((item, index) => (
             <SwiperSlide className="swiper-slide" key={`${item.id}-${index}`}>
               <Box className="celebrity_avatar_wrap">
